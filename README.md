@@ -1,32 +1,62 @@
-# Getting Started with React Components & React Hooks
+# Introduction
 
-This assignment requires also TypeScript when passing props to React Components
+Learning React Components & Hooks with TypeScript.
 
-## Requirements
+In this assignment I build a rather simple but challenging budgeting app where user can add incomes and expenses to see their total account balance.
+User can also transfer money to their savings account under a condition that balance never goes below zero.
 
-1. Create a simple one-page application to store incomes and expenses, and set
-saving target.
-2. Account balance can be calculated from incomes, expenses, and saving.
-`incomes - expenses - saving = balance`
-3. Users should be able to add new incomes, expenses, transfer from balance account to saving account, and reset saving target. Balance should never be negative number.
-4. Use React Hooks where applicable. TypeScript must be used at least for the props types.
-5. Style is not the priority in this assignment.
+This assignment was a great learning experience and I tried my best to use nested components with a focus on component re-usability. Improvements could of course still be made. 
 
-## Bonus point
+Test it out: https://645186d878416322d8a141ba--shimmering-cendol-87adf2.netlify.app/
 
-1. Add function to transfer money back from saving account to current balance.
-2. Set source of incomes and expenses as the select elements with the categories of your choice.
-3. Add edit/delete button and according functions for incomes and expenses.
-4. Use `d3` package to print out 2 piecharts for incomes and expenses in categories (I only give bonus point when you use `d3`, not the other handier libraries).
+## Table of contents
 
-## References
+- [Technologies](#technologies)
+- [Project structure](#project-structure)
+- [Getting started](#getting-started)
 
-Be creative with your style!
+## Technologies
 
-![demo1](demo1.png)
----
+- TypeScript
+- React
 
-![demo2](demo2.png)
----
+## Project structure
+```bash
+│   .gitignore
+│   package.json
+│   readme.md
+│   tsconfig.json
+│
+├───public
+│       index.html
+│       manifest.json
+│       robots.txt
+│
+└───src
+    │   App.tsx
+    │   index.tsx
+    │   react-app-env.d.ts
+    │
+    ├───components
+    │       form.tsx
+    │       inputField.tsx
+    │       transactionList.tsx
+    │
+    ├───hooks
+    │       useCheckBalance.ts
+    │
+    ├───interfaces
+    │       balanceprops.interface.ts
+    │       formprops.interface.ts
+    │       inputprops.interface.ts
+    │       inputvalues.interface.ts
+    │       listprops.interface.ts
+    │
+    └───views
+            budgeting.tsx
+```
 
-![demo3](demo3.png)
+## Getting started
+
+1. Use <code>git clone</code> and <code>npm i</code> to install the project.
+2. Refer to <code>package.json</code> for scripts to run. Use<code>npm run start</code> to run in dev mode.
