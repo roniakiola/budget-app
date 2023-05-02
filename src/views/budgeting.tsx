@@ -11,14 +11,22 @@ const Budgeting = () => {
 
   const handleExpenseSubmit = (inputData: InputValues) => {
     if (checkBalance(inputData.amount)) {
-      setExpenses([...expenses, inputData]);
+      const newExpense = {
+        ...inputData,
+        amount: parseInt(inputData.amount as any),
+      };
+      setExpenses([...expenses, newExpense]);
     } else {
       alert('Balance too low!');
     }
   };
 
   const handleIncomeSubmit = (inputData: InputValues) => {
-    setIncomes([...incomes, inputData]);
+    const newIncome = {
+      ...inputData,
+      amount: parseInt(inputData.amount as any),
+    };
+    setIncomes([...incomes, newIncome]);
   };
 
   return (
