@@ -1,6 +1,6 @@
 import Form from '../components/form';
 
-const Burgeting = () => {
+const Budgeting = () => {
   return (
     <>
       <Form formName='Income' />
@@ -8,4 +8,4 @@ const Burgeting = () => {
   );
 };
 
-export default Burgeting;
+export default Budgeting;

@@ -1,18 +1,18 @@
-type InputProps = {
+interface InputProps {
+  label: string;
   name: string;
   type: string;
   value: string | number;
-};
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 const InputField = (props: InputProps) => {
-  const { name, type, value } = props;
+  const { label, name, type, value, onChange } = props;
   return (
-    <>
-      <label htmlFor={name}>
-        <p>{name}</p>
-        <input id={name} type={type} value={value} />
-      </label>
-    </>
+    <div>
+      <label htmlFor={name}>{label}</label>
+      <input type={type} name={name} value={value} onChange={onChange} />
+    </div>
   );
 };
 

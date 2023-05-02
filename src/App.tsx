@@ -1,9 +1,9 @@
-import Burgeting from './views/budgeting';
+import Budgeting from './views/budgeting';
 
 const App = () => {
   return (
     <>
-      <Burgeting />
+      <Budgeting />
     </>
   );
 };
