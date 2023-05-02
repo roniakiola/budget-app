@@ -1,11 +1,11 @@
-import React from 'react';
+import InputFields from './components/inputFields';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <InputFields />
+    </>
   );
-}
+};
 
 export default App;
