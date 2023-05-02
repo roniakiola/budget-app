@@ -1,9 +1,9 @@
-import InputFields from './components/inputFields';
+import Burgeting from './views/budgeting';
 
 const App = () => {
   return (
     <>
-      <InputFields />
+      <Burgeting />
     </>
   );
 };
