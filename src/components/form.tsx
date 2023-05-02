@@ -4,10 +4,11 @@ import { InputValues } from '../interfaces/inputvalues.interface';
 
 interface FormProps {
   formName: string;
+  onSubmit: (inputData: InputValues) => void;
 }
 
 const Form = (props: FormProps) => {
-  const { formName } = props;
+  const { formName, onSubmit } = props;
 
   const [inputValues, setInputValues] = useState<InputValues>({
     title: '',
@@ -28,6 +29,7 @@ const Form = (props: FormProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(inputValues);
+    onSubmit(inputValues);
     setInputValues({ title: '', amount: 0, date: '' });
   };
   return (
@@ -54,7 +56,9 @@ const Form = (props: FormProps) => {
           value={inputValues.date}
           onChange={handleChange}
         />
-        <button type='submit'>Submit</button>
+        <button type='submit'>
+          {formName === 'expense' ? 'Add Expense' : 'Add Income'}
+        </button>
       </form>
     </>
   );
