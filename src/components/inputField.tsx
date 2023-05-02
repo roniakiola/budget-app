@@ -11,7 +11,13 @@ const InputField = (props: InputProps) => {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} value={value} onChange={onChange} />
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required
+      />
     </div>
   );
 };

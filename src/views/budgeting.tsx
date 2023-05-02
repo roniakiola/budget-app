@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { InputValues } from '../interfaces/inputvalues.interface';
 import Form from '../components/form';
 import TransactionList from '../components/transactionList';
+import Balance from '../components/balance';
 
 const Budgeting = () => {
   const [incomes, setIncomes] = useState<InputValues[]>([]);
@@ -21,6 +22,7 @@ const Budgeting = () => {
       <TransactionList inputData={incomes} />
       <Form formName='Expenses' onSubmit={handleExpenseSubmit} />
       <TransactionList inputData={expenses} />
+      <Balance incomes={incomes} expenses={expenses} />
     </>
   );
 };
