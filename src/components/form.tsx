@@ -35,30 +35,45 @@ const Form = (props: FormProps) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <InputField
-          label={`Source of ${formName}`}
-          name='title'
-          type='text'
-          value={inputValues.title}
-          onChange={handleChange}
-        />
-        <InputField
-          label={`Amount of ${formName}`}
-          name='amount'
-          type='number'
-          value={inputValues.amount}
-          onChange={handleChange}
-        />
-        <InputField
-          label={`Date of ${formName}`}
-          name='date'
-          type='date'
-          value={inputValues.date}
-          onChange={handleChange}
-        />
-        <button type='submit'>
-          {formName === 'expense' ? 'Add Expense' : 'Add Income'}
-        </button>
+        {formName === 'Savings' ? (
+          <>
+            <InputField
+              label={`Amount of ${formName}`}
+              name='amount'
+              type='number'
+              value={inputValues.amount}
+              onChange={handleChange}
+            />
+            <button type='submit'>Add Savings</button>
+          </>
+        ) : (
+          <>
+            <InputField
+              label={`Source of ${formName}`}
+              name='title'
+              type='text'
+              value={inputValues.title}
+              onChange={handleChange}
+            />
+            <InputField
+              label={`Amount of ${formName}`}
+              name='amount'
+              type='number'
+              value={inputValues.amount}
+              onChange={handleChange}
+            />
+            <InputField
+              label={`Date of ${formName}`}
+              name='date'
+              type='date'
+              value={inputValues.date}
+              onChange={handleChange}
+            />
+            <button type='submit'>
+              {formName === 'Expenses' ? 'Add Expense' : 'Add Income'}
+            </button>
+          </>
+        )}
       </form>
     </>
   );

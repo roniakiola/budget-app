@@ -7,7 +7,12 @@ import useCheckBalance from '../hooks/useCheckBalance';
 const Budgeting = () => {
   const [incomes, setIncomes] = useState<InputValues[]>([]);
   const [expenses, setExpenses] = useState<InputValues[]>([]);
-  const { balance, checkBalance } = useCheckBalance({ incomes, expenses });
+  const [savings, setSavings] = useState(0);
+  const { balance, checkBalance } = useCheckBalance({
+    incomes,
+    expenses,
+    savings,
+  });
 
   const handleExpenseSubmit = (inputData: InputValues) => {
     if (checkBalance(inputData.amount)) {
@@ -29,13 +34,28 @@ const Budgeting = () => {
     setIncomes([...incomes, newIncome]);
   };
 
+  const handleTransfer = (inputData: InputValues) => {
+    const transferToSavings = (amount: number) => {
+      if (checkBalance(amount)) {
+        setSavings(savings + amount);
+        return true;
+      } else {
+        alert('Balance too low!');
+        return false;
+      }
+    };
+    transferToSavings(parseInt(inputData.amount as any));
+  };
+
   return (
     <>
       <Form formName='Income' onSubmit={handleIncomeSubmit} />
       <TransactionList inputData={incomes} />
       <Form formName='Expenses' onSubmit={handleExpenseSubmit} />
       <TransactionList inputData={expenses} />
+      <Form formName='Savings' onSubmit={handleTransfer} />
       <h1>Balance: {balance}</h1>
+      <h2>Savings: {savings}</h2>
     </>
   );
 };
