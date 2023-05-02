@@ -5,7 +5,7 @@ const useCheckBalance = (props: BalanceProps) => {
   const { incomes, expenses, savings } = props;
   const [balance, setBalance] = useState<number>(0);
 
-  //use effect to only cause render on incomes and expenses change
+  //use effect to only cause render on incomes, expenses and savings change
   useEffect(() => {
     const sumIncomes = incomes.reduce((acc, curr) => acc + curr.amount, 0);
     const sumExpenses = expenses.reduce((acc, curr) => acc + curr.amount, 0);
