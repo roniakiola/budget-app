@@ -2,14 +2,19 @@ import { useState } from 'react';
 import { InputValues } from '../interfaces/inputvalues.interface';
 import Form from '../components/form';
 import TransactionList from '../components/transactionList';
-import Balance from '../components/balance';
+import useCheckBalance from '../hooks/useCheckBalance';
 
 const Budgeting = () => {
   const [incomes, setIncomes] = useState<InputValues[]>([]);
   const [expenses, setExpenses] = useState<InputValues[]>([]);
+  const { balance, checkBalance } = useCheckBalance({ incomes, expenses });
 
   const handleExpenseSubmit = (inputData: InputValues) => {
-    setExpenses([...expenses, inputData]);
+    if (checkBalance(inputData.amount)) {
+      setExpenses([...expenses, inputData]);
+    } else {
+      alert('Balance too low!');
+    }
   };
 
   const handleIncomeSubmit = (inputData: InputValues) => {
@@ -22,7 +27,7 @@ const Budgeting = () => {
       <TransactionList inputData={incomes} />
       <Form formName='Expenses' onSubmit={handleExpenseSubmit} />
       <TransactionList inputData={expenses} />
-      <Balance incomes={incomes} expenses={expenses} />
+      <h1>Balance: {balance}</h1>
     </>
   );
 };
