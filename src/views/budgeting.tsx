@@ -8,6 +8,7 @@ const Budgeting = () => {
   const [incomes, setIncomes] = useState<InputValues[]>([]);
   const [expenses, setExpenses] = useState<InputValues[]>([]);
   const [savings, setSavings] = useState(0);
+  const [target, setTarget] = useState(0);
   const { balance, checkBalance } = useCheckBalance({
     incomes,
     expenses,
@@ -47,6 +48,10 @@ const Budgeting = () => {
     transferToSavings(parseInt(inputData.amount as any));
   };
 
+  const addTarget = (inputData: InputValues) => {
+    setTarget(inputData.amount);
+  };
+
   return (
     <>
       <Form formName='Income' onSubmit={handleIncomeSubmit} />
@@ -54,8 +59,10 @@ const Budgeting = () => {
       <Form formName='Expenses' onSubmit={handleExpenseSubmit} />
       <TransactionList inputData={expenses} />
       <Form formName='Savings' onSubmit={handleTransfer} />
+      <Form formName='Target' onSubmit={addTarget} />
       <h1>Balance: {balance}</h1>
       <h2>Savings: {savings}</h2>
+      <h2>Target: {target}</h2>
     </>
   );
 };

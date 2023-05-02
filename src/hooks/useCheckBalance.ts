@@ -1,11 +1,5 @@
 import { useState, useEffect } from 'react';
-import { InputValues } from '../interfaces/inputvalues.interface';
-
-interface BalanceProps {
-  incomes: InputValues[];
-  expenses: InputValues[];
-  savings: number;
-}
+import { BalanceProps } from '../interfaces/balanceprops.interface';
 
 const useCheckBalance = (props: BalanceProps) => {
   const { incomes, expenses, savings } = props;

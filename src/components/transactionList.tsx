@@ -1,8 +1,5 @@
-import { InputValues } from '../interfaces/inputvalues.interface';
+import { ListProps } from '../interfaces/listprops.interface';
 
-interface ListProps {
-  inputData: InputValues[];
-}
 const TransactionList = (props: ListProps) => {
   const { inputData } = props;
   return (

@@ -1,11 +1,7 @@
 import InputField from './inputField';
 import { useState } from 'react';
+import { FormProps } from '../interfaces/formprops.interface';
 import { InputValues } from '../interfaces/inputvalues.interface';
-
-interface FormProps {
-  formName: string;
-  onSubmit: (inputData: InputValues) => void;
-}
 
 const Form = (props: FormProps) => {
   const { formName, onSubmit } = props;
@@ -45,6 +41,17 @@ const Form = (props: FormProps) => {
               onChange={handleChange}
             />
             <button type='submit'>Add Savings</button>
+          </>
+        ) : formName === 'Target' ? (
+          <>
+            <InputField
+              label={`Amount of ${formName}`}
+              name='amount'
+              type='number'
+              value={inputValues.amount}
+              onChange={handleChange}
+            />
+            <button type='submit'>Add / Reset Target</button>
           </>
         ) : (
           <>
