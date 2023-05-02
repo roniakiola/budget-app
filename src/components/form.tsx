@@ -1,13 +1,9 @@
 import InputField from './inputField';
 import { useState } from 'react';
+import { InputValues } from '../interfaces/inputvalues.interface';
 
 interface FormProps {
   formName: string;
-}
-interface InputValues {
-  title: string;
-  amount: number;
-  date: string;
 }
 
 const Form = (props: FormProps) => {
